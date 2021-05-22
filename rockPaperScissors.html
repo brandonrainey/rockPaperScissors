@@ -1,0 +1,86 @@
+<script>
+
+
+    function computerPlay() {
+        let num = Math.floor(Math.random() * 3);
+        switch(num) {
+            case 0:
+                return 'Rock';
+                break;
+            case 1:
+                return 'Scissors';
+                break;
+            case 2:
+                return 'Paper';
+                break;
+    }
+             
+    };
+
+    let yourScore = 0;
+    let compScore = 0;
+    let playerSelection;
+    let computerSelection;
+    
+
+    function gameRound(playerSelection, computerSelection) {
+                playerSelection = prompt('Rock, Paper or Scissors');
+                computerSelection = computerPlay();
+
+                switch(playerSelection.toUpperCase()) {
+            case 'ROCK': 
+                if (computerSelection == 'Rock') {
+                    console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+                    break;
+                } else if (computerSelection == 'Paper') {
+                    compScore = compScore + 1;
+                    console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+                    break;
+                } else 
+                yourScore = yourScore + 1;
+                console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+            
+             case 'PAPER': 
+                if (computerSelection == 'Rock') {
+                    yourScore = yourScore + 1;
+                    console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+                    break;
+                } else if (computerSelection == 'Paper') {
+                    console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+                    break;
+                } else 
+                compScore = compScore + 1;
+                console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+
+            case 'SCISSORS': 
+                if (computerSelection == 'Rock') {
+                    compScore = compScore + 1;
+                    console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+                    break;
+                } else if (computerSelection == 'Paper') {
+                    yourScore = yourScore + 1;
+                    console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+                    break;
+                } else console.log(`Your points: ${yourScore} \n Comp points: ${compScore}`);
+        }
+            };
+    
+    
+    function game() {
+        compScore = 0;
+        yourScore = 0;
+        
+        for(var i = 0; i < 5; i++){  
+            gameRound();
+        }
+
+        if (yourScore > compScore) {
+                  return 'You Win the Match';
+            }   else if (compScore > yourScore) {
+                     return 'You Lose the Match';
+            }  else return 'No Winner';
+    
+        
+    }
+    
+</script>
